@@ -11,8 +11,8 @@ namespace ToDoList
     public Startup(IHostingEnvironment env)
     {
       var builder = new ConfigurationBuilder()
-          .SetBasePath(env.ContentRootPath)
-          .AddEnvironmentVariables();
+        .SetBasePath(env.ContentRootPath)
+        .AddEnvironmentVariables();
       Configuration = builder.Build();
     }
 
@@ -30,8 +30,8 @@ namespace ToDoList
       app.UseMvc(routes =>
       {
         routes.MapRoute(
-          name: "default",
-          template: "{controller=Home}/{action=Index}/{id?}");
+        name: "default",
+        template: "{controller=Home}/{action=Index}/{id?}");
       });
 
         app.Run(async (context) =>
@@ -40,5 +40,9 @@ namespace ToDoList
         });
 
     }
+  }
+  public static class DBConfiguration
+  {
+    public static string ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=to_do_list;";
   }
 }
